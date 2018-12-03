@@ -14,6 +14,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        //border布局:上下左右中borderPane.setTop(Object)。
+        //对齐方式:BorderPane.setAlignment(Object, Pos.CENTER);Pos.CENTER还有其他。
+
         Button button1=new Button("左上");
         button1.setPrefSize(100,20);
 
