@@ -3,4 +3,6 @@
     -fx-background-image: url("img.PNG");
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
+    -fx-border-color: #8d86d6;
+    -fx-border-width: 6px;
 }
