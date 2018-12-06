@@ -24,12 +24,7 @@ public class Main2 extends Application {
         final int column=3;
         final int row=4;
         Button[][] btns=new Button[column][row];
-        btns[0][0]=new Button("{row:" + 0 + ",column:" + 0 + "}");
-        btns[0][0].setPrefSize(130,20);
-        gridPane.add(btns[0][0],0,0,2,1);
-        btns[2][0]=new Button("{row:" + 0 + ",column:" + 2 + "}");
-        btns[2][0].setPrefSize(60,20);
-        gridPane.add(btns[2][0],2,0);
+
 
         Scene scene=new Scene(gridPane);
         primaryStage.setScene(scene);
