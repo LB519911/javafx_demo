@@ -1,0 +1,6 @@
+.anchorPane{
+    -fx-background-color: #e2e2e2;
+    -fx-background-image: url("img.PNG");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
