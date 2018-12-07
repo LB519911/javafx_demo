@@ -1,8 +1,8 @@
-package _14_BoxBlur;
+package _16_MotionBlur_带有移动感觉的blur;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.effect.MotionBlur;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
@@ -20,11 +20,10 @@ public class Main extends Application {
         Text text=new Text("模糊");
         text.setFont(Font.font("宋体", FontWeight.BOLD,67));
 
-        BoxBlur blur=new BoxBlur();
-        blur.setWidth(10);
-        blur.setHeight(20);
-        blur.setIterations(1);
-        text.setEffect(blur);
+        MotionBlur motionBlur=new MotionBlur();
+        motionBlur.setRadius(15.0);
+        motionBlur.setAngle(2);
+        text.setEffect(motionBlur);
 
         AnchorPane anchorPane=new AnchorPane();
         AnchorPane.setTopAnchor(text, 100.0);
