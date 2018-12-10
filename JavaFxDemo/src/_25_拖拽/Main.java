@@ -22,6 +22,9 @@ public class Main extends Application {
         Text text_source=new Text("拖拽前");
         AnchorPane.setTopAnchor(text_source,100.0);
         AnchorPane.setLeftAnchor(text_source,100.0);
+        Text text_done=new Text("拖拽后");
+        AnchorPane.setTopAnchor(text_done,100.0);
+        AnchorPane.setLeftAnchor(text_done,500.0);
         //侦测拖拽
         text_source.setOnDragDetected(event -> {
             //获取物件
@@ -33,9 +36,36 @@ public class Main extends Application {
             dragboard.setContent(clipboardContent);
             event.consume();
         });
-        Text text_done=new Text("拖拽后");
-        AnchorPane.setTopAnchor(text_source,100.0);
-        AnchorPane.setLeftAnchor(text_source,500.0);
+        //拖拽到上方
+        text_done.setOnDragOver(event -> {
+            //如果拖拽过来的是文字
+            if(event.getGestureSource()!=text_done
+                    &&event.getDragboard().hasString()){
+                //同意拖拽事件
+                event.acceptTransferModes(TransferMode.ANY);
+            }
+            event.consume();
+        });
+        //当拖拽放开时
+        text_done.setOnDragDropped(event -> {
+            Dragboard dragboard = event.getDragboard();
+            boolean success=false;
+            if(dragboard.hasString()){
+                //替换文字
+                text_done.setText(dragboard.getString());
+                success=true;
+            }
+            //作业完成
+            event.setDropCompleted(success);
+            event.consume();
+        });
+        //拖拽完成后清空文字
+        text_source.setOnDragDone(event -> {
+            if(event.getTransferMode()==TransferMode.MOVE){
+                text_source.setText("");
+            }
+            event.consume();
+        });
         
         AnchorPane anchorPane=new AnchorPane();
         anchorPane.getChildren().addAll(text_source,text_done);
